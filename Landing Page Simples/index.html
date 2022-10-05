@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Montserrat:wght@900&family=Mouse+Memoirs&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <menu class="menu">
+        <div class="menuContainer">
+            <h1>Menu</h1>
+            <ul>
+                <li><a href="#spaceMenu">Arte Abstrata</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#IMC">Calcular IMC</a></li>
+                <li><a href="#Date">Data</a></li>
+                <li><a href=""></a></li>
+            </ul>
+        </div>
+    </menu>
+    <div class="menuSpace" id="spaceMenu"></div>
+
+    <section class="section blackBackground" id="sec1">
+        <div class="section1">
+            <div class="sectionText1">
+                <h1>Arte Abstrata</h1>
+                <p>A arte abstrata ou abstracionismo é geralmente entendido como uma forma de arte que não representa
+                    objetos próprios da nossa realidade concreta exterior. Ao invés disso, usa as relações formais entre
+                    cores, linhas e superfícies para compor a realidade da obra, de uma maneira "não representacional".
+                </p>
+            </div>
+            <div class='sectionImg1'>
+                <img src="./Assets/Section 1 - Image.svg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="section purpleBackground" id="galeria">
+        <div class="galeryText">
+            <h1>Galeria</h1>
+        </div>
+
+        <div class="containerGridGalery">
+            <div class="gridGalery">
+                <div class="imgGalery">
+                    <img src="./Assets/IMG-1.jpg" alt="">
+                </div>
+                <div class="imgGalery">
+                    <img src="./Assets/IMG-2.jpg" alt="">
+                </div>
+                <div class="imgGalery">
+                    <img src="./Assets/IMG-3.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="gridGalery">
+                <div class="imgGalery">
+                    <img src="./Assets/IMG-4.jpg" alt="">
+                </div>
+                <div class="imgGalery">
+                    <img src="./Assets/IMG-5.jpg" alt="">
+                </div>
+                <div class="imgGalery">
+                    <img src="./Assets/IMG-6.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section blackBackground" id="IMC">
+        <div class="imcspacing"></div>
+        <div class="imc">
+            <div class="imcContainer">
+                <h2>Tabela IMC</h2>
+                <div class="flexImc">
+                    <div class="containerGridImc">
+                        <h2>IMC</h2>
+                        <p>Menos do que 18,5</p>
+                        <p>Entre 18,5 e 24,9</p>
+                        <p>Entre 25 e 29,9</p>
+                        <p>Entre 30 e 34,9</p>
+                        <p>Entre 35 e 39,9</p>
+                        <p>Mais do que 40</p>
+                    </div>
+
+                    <div class="containerGridImc">
+                        <h2>Resultado</h2>
+                        <p>Abaixo do peso</p>
+                        <p>Peso normal</p>
+                        <p>Sobrepeso</p>
+                        <p>Obesidade grau 1</p>
+                        <p>Obesidade grau 2</p>
+                        <p>Obesidade grau 3</p>
+                    </div>
+                </div>
+                <h2>Calcule seu IMC</h2>
+                <form action="" method="get" class="formImc">
+                    <label for="Altura">Altura:</label><br>
+                    <input type="text" id="Altura" placeholder="Digite sua altura aqui. Ex: 1.70"><br>
+
+                    <label for="Peso">Peso:</label><br>
+                    <input type="text" id="Peso" placeholder="Digite seu peso aqui. Ex: 60"><br>
+
+                    <button>Enviar</button>
+                </form>
+                <div class="resultado"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section purpleBackground" id="Date">
+        <div class="dateContainer"></div>
+        <div class="tableContainer">
+            <table>
+                <caption>
+                    <b>Descrição da Tabela!</b>
+                </caption>
+                <thead>
+                    <tr>
+                        <th>Titulo</th>
+                        <td>Titulo</td>
+                        <td>Titulo</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Conteudo</th>
+                        <td>Conteudo</td>
+                        <td>Conteudo</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Rodapé</th>
+                        <td>Rodapé</td>
+                        <td>Rodapé</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </section>
+
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
