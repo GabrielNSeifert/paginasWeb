@@ -321,6 +321,86 @@ body{
     margin-top: 1rem;
 }
 
+/***************** Formulário ******************/
+
+#form{
+    padding-top: 2rem;
+    height: 75rem;
+}
+
+.containerForm{
+    background-color: black;
+    color: white;
+    width: 40%;
+    height: 70rem;
+    margin: auto;
+    border-radius: 1rem;
+    line-height: 2rem;
+    text-align: center;
+}
+
+.containerForm h1{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    font-size: 3rem;
+}
+
+.containerForm ul{
+    padding-bottom: 2rem;
+}
+
+.containerForm ul li{
+    list-style: none;
+    padding-bottom: 1rem;
+}
+
+.formulario{
+    height: 50rem;
+}
+
+.formulario label{
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.formulario label:hover{
+    color: gray;
+}
+
+.formulario input{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    width: 25rem;
+    height: 3rem;
+    width: 30rem;
+    border-radius: 1rem;
+    font-family: 'Mouse Memoirs', sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.formulario input:hover{
+    border: 0.3rem solid gray;
+}
+
+.formulario button{
+    margin-top: 2rem;
+    height: 3rem;
+    width: 10rem;
+    font-family: 'Mouse Memoirs', sans-serif;
+    font-size: 2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    color: gray;
+}
+
+.formulario button:hover{
+    background-color: gray;
+    color: white;
+}
+
 
 /***************** Medias Query ******************/
 
@@ -330,6 +410,16 @@ body{
         width: 20rem;
     }
 
+    #form{
+        padding-top: 2rem;
+        height: 80rem;
+    }
+
+    .containerForm{
+        height: 75rem;
+    }
+
+    
 }
 
 @media (max-width: 100rem)
@@ -359,9 +449,42 @@ body{
     #calImc{
         height: 100rem;
     }
+
+    .containerForm{
+        height: 100rem;
+    }
+
+    #form{
+        height: 100rem;
+    }
+
+    .containerForm{
+        height: 80rem;
+    }
+
+    .formulario input{
+        width: 20rem;
+    }
+
+    .containerForm h1{
+        font-size: 2rem;
+    }
 }
 
-@media (max-width: 450px)
+@media (max-width: 60rem)
 {
+    .formulario input{
+        width: 15rem;
+    }
 
+    .containerForm{
+       height: 90rem;
+    }
+}
+
+@media (max-width: 40rem)
+{
+    .formulario input{
+        width: 10rem;
+    }
 }

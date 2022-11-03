@@ -11,7 +11,7 @@ function criarMenu() {
         <li title="Cronômetro"><a href="#cronometro"><img src="./Assets/Menu-Cronometro.png" alt="Cronômetro"></a></li>
         <li title="Calculadora"><a href="#Cal"><img src="./Assets/Menu-Calculadora.png" alt="Calculadora"></a></li>
         <li title="Calculadora IMC"><a href="#calImc"><img src="./Assets/Menu-IMC.png" alt="Calculadora de IMC"></a></li>
-        <li title="Lista de Tarefas"><a href=""><img src="./Assets/Menu-Lista.png" alt="Lista de Tarefas"></a></li>
+        <li title="Formulário"><a href="#form"><img src="./Assets/Menu-Lista.png" alt="Lista de Tarefas"></a></li>
     </ul>`;
     menuEstado++;
     } else {
