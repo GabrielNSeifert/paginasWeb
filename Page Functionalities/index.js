@@ -3,21 +3,22 @@ function criarMenu() {
     const btMenu = document.querySelector('.btMenu')
     let menuEstado = 0;
 
-    btMenu.addEventListener('click', function(){
-        if (menuEstado == 0){
-        nav.innerHTML = 
-    `<ul id="menuLista">
+    btMenu.addEventListener('click', function () {
+        if (menuEstado == 0) {
+            nav.innerHTML =
+                `<ul id="menuLista">
         <li title="Página Inicial"><a href="#pagInicial"><img src="./Assets/Menu-Home.png" alt="Página Inicial"></a></li>
         <li title="Cronômetro"><a href="#cronometro"><img src="./Assets/Menu-Cronometro.png" alt="Cronômetro"></a></li>
         <li title="Calculadora"><a href="#Cal"><img src="./Assets/Menu-Calculadora.png" alt="Calculadora"></a></li>
         <li title="Calculadora IMC"><a href="#calImc"><img src="./Assets/Menu-IMC.png" alt="Calculadora de IMC"></a></li>
         <li title="Formulário"><a href="#form"><img src="./Assets/Menu-Lista.png" alt="Lista de Tarefas"></a></li>
     </ul>`;
-    menuEstado++;
-    } else {
-        nav.innerHTML = " ";
-        menuEstado--;
-    }});
+            menuEstado++;
+        } else {
+            nav.innerHTML = " ";
+            menuEstado--;
+        }
+    });
 }
 
 function relogio() {
@@ -71,7 +72,7 @@ function relogio() {
                 horas = 0;
                 horasDezena = 0;
             }
-            
+
         }, 1000)
 
         function pause() {
@@ -156,17 +157,17 @@ function Calculadora() {
 
 }
 
-function imcCalculadora (){
+function imcCalculadora() {
     const form = document.querySelector('.formImc');
 
-    function calcularIMC(enviar){
+    function calcularIMC(enviar) {
         enviar.preventDefault();
 
         const Altura = document.querySelector('#Altura');
         const Peso = document.querySelector('#Peso');
         const imc = Peso.value / Altura.value ** 2;
         let resultado = document.querySelector('.resultado');
-        
+
         if (imc < 18.5) resultado.innerHTML = `Seu IMC é de ${imc.toFixed(2)} (Abaixo do Peso).`;
         else if (imc >= 18.5 && imc <= 24.9) resultado.innerHTML = `Seu IMC é de ${imc.toFixed(2)} (Peso Normal).`;
         else if (imc >= 25 && imc <= 29.9) resultado.innerHTML = `Seu IMC é de ${imc.toFixed(2)} (Sobrepeso).`;
@@ -179,7 +180,162 @@ function imcCalculadora (){
     form.addEventListener('submit', calcularIMC);
 }
 
+class ValidaFormulario {
+    constructor() {
+        this.formulario = document.querySelector('.formulario');
+        this.eventos();
+    }
 
+    eventos() {
+        this.formulario.addEventListener('submit', e => {
+            this.handleSubmit(e);
+        });
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        const camposValidos = this.camposSaoValidos();
+        const senhasValidas = this.senhasSaoValidas();
+
+        if (camposValidos && senhasValidas) {
+            alert('Formulário enviado.');
+        }
+    }
+
+    senhasSaoValidas() {
+        let valid = true;
+
+        const senha = this.formulario.querySelector('#senha');
+        const repetirSenha = this.formulario.querySelector('#repetirSenha');
+
+        if (senha.value !== repetirSenha.value) {
+            valid = false;
+            this.criaErro(senha, 'Campos senha e repetir senha precisar ser iguais.');
+            this.criaErro(repetirSenha, 'Campos senha e repetir senha precisar ser iguais.');
+        }
+
+        if (senha.value.length < 6 || senha.value.length > 12) {
+            valid = false;
+            this.criaErro(senha, 'Senha precisa estar entre 6 e 12 caracteres.');
+        }
+
+        return valid;
+    }
+
+    camposSaoValidos() {
+        let valid = true;
+
+        for (let errorText of this.formulario.querySelectorAll('.error-text')) {
+            errorText.remove();
+        }
+
+        for (let campo of this.formulario.querySelectorAll('.validar')) {
+            const label = campo.previousElementSibling.innerText;
+
+            if (!campo.value) {
+                this.criaErro(campo, `Campo " ${label} " não pode estar em branco.`);
+                valid = false;
+            }
+
+            if (campo.classList.contains('cpff')) {
+                if (!this.validaCPF(campo)) valid = false;
+            }
+
+            if (campo.classList.contains('usuarioo')) {
+                if (!this.validaUsuario(campo)) valid = false;
+            }
+
+        }
+
+        return valid;
+    }
+
+    validaUsuario(campo) {
+        const usuario = campo.value;
+        let valid = true;
+
+
+        if (usuario.length < 3 || usuario.length > 12) {
+            this.criaErro(campo, 'Usuário precisa ter entre 3 e 12 caracteres.');
+            valid = false;
+        }
+
+        if (!usuario.match(/^[a-zA-Z0-9]+$/g)) {
+            this.criaErro(campo, 'Usuário precisa conter apenas letras e números.');
+            valid = false;
+        }
+
+
+
+        return valid;
+    }
+
+    validaCPF(campo) {
+        const cpf = new ValidaCPF(campo.value);
+
+        if (!cpf.valida()) {
+            this.criaErro(campo, 'CPF inválido.');
+            return false;
+        }
+
+        return true;
+    }
+
+    criaErro(campo, msg) {
+        const div = document.createElement('div');
+        div.innerHTML = msg;
+        div.classList.add('error-text');
+        campo.insertAdjacentElement('afterend', div);
+    }
+};
+
+class ValidaCPF {
+    constructor(cpfEnviado) {
+        Object.defineProperty(this, 'cpfLimpo', {
+            writable: false,
+            enumerable: true,
+            configurable: false,
+            value: cpfEnviado.replace(/\D+/g, '')
+        });
+    }
+
+    éSequência() {
+        return this.cpfLimpo.charAt(0).repeat(11) === this.cpfLimpo;
+    }
+
+    geraNovoCpf() {
+        const cpfSemDigitos = this.cpfLimpo.slice(0, -2);
+        const digito1 = ValidaCPF.geraDigito(cpfSemDigitos);
+        const digito2 = ValidaCPF.geraDigito(cpfSemDigitos + digito1);
+        this.novoCPF = cpfSemDigitos + digito1 + digito2;
+    }
+
+    static geraDigito(cpfSemDigitos) {
+        let total = 0;
+        let reverso = cpfSemDigitos.length + 1;
+
+        for (let stringNumerica of cpfSemDigitos) {
+            total += reverso * Number(stringNumerica);
+            reverso--;
+        }
+
+        const digito = 11 - (total % 11);
+        return digito <= 9 ? String(digito) : '0';
+    }
+
+    valida() {
+        if (!this.cpfLimpo) return false;
+        if (typeof this.cpfLimpo !== 'string') return false;
+        if (this.cpfLimpo.length !== 11) return false;
+        if (this.éSequência()) return false;
+        this.geraNovoCpf();
+
+        return this.novoCPF === this.cpfLimpo;
+    }
+}
+
+
+const valida = new ValidaFormulario();
 const calculadora = new Calculadora();
 calculadora.inicia();
 relogio();
