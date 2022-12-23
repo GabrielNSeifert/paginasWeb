@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+}
+
+.game-board {
+    width: 80%;
+    height: 700px;
+    border: 1px solid white;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.nuvem {
+    position: absolute;
+    height: 300px;
+    width: 500px;
+    animation: nuvem 20s infinite linear;
+}
+
+.obstaculo {
+    position: absolute;
+    height: 100px;
+    bottom: 0;
+    /* left: 145px; */
+    animation: obstaculo-animação 4s infinite linear;
+}
+
+.pikachu {
+    height: 100px;
+    bottom: 0;
+    position: absolute;
+    border-radius: 30px;
+}
+
+.jump {
+    animation: pikachu-pulando 2s linear;
+}
+
+@keyframes nuvem {
+    from {
+        right: -501px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+
+@keyframes obstaculo-animação {
+    from {
+        right: -101px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes pikachu-pulando {
+    0% {
+        bottom: 0;
+    }
+
+    25% {
+        bottom: 130px;
+    }
+
+    35% {
+        bottom: 140px;
+    }
+
+    40% {
+        bottom: 145px;
+    }
+
+    50% {
+        bottom: 150px;
+    }
+
+    60% {
+        bottom: 145px;
+    }
+
+    65% {
+        bottom: 140px;
+    }
+
+    75% {
+        bottom: 130px;
+    }
+
+    85% {
+        bottom: 110px;
+    }
+
+    100% {
+        bottom: 0px;
+    }
+}
