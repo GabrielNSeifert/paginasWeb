@@ -2,16 +2,33 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body{
     background-color: black;
+}
+
+p{
+    text-align: center;
+    font-size: 50px;
+    color: white;
+}
+
+.pontos{
+    text-align: center;
+    font-size: 50px;
+    padding-top: 350px;
 }
 
 .game-board {
     width: 80%;
     height: 700px;
-    border: 1px solid white;
-    margin: 0 auto;
+    border-bottom: 8px green solid;
+    border-radius: 10px;
+    margin: 50px auto;
     position: relative;
     overflow: hidden;
+    background-image: linear-gradient(to right, rgb(44, 198, 245), rgb(84, 203, 240), rgb(253, 251, 218));
 }
 
 .nuvem {
@@ -21,20 +38,19 @@
     animation: nuvem 20s infinite linear;
 }
 
-.obstaculo {
+.obstaculo{
     position: absolute;
     height: 100px;
     bottom: 0;
-    /* left: 145px; */
-    animation: obstaculo-animação 4s infinite linear;
-}
+    animation: obstaculo-animação 4s infinite linear; 
+ }
 
 .pikachu {
     height: 100px;
-    bottom: 0;
     position: absolute;
     border-radius: 30px;
-}
+    bottom: 0px;
+ }
 
 .jump {
     animation: pikachu-pulando 2s linear;
