@@ -9,26 +9,55 @@ body{
 }
 
 p{
+    margin-top: 20px;
     text-align: center;
     font-size: 50px;
     color: white;
 }
 
 .pontos{
-    text-align: center;
+    position: absolute;
+    margin-left: 50%;
     font-size: 50px;
-    padding-top: 350px;
+    margin-top: 350px;
 }
 
 .game-board {
-    width: 80%;
+    width: 100%;
     height: 700px;
     border-bottom: 8px green solid;
     border-radius: 10px;
-    margin: 50px auto;
+    margin: 40px auto;
     position: relative;
     overflow: hidden;
     background-image: linear-gradient(to right, rgb(44, 198, 245), rgb(84, 203, 240), rgb(253, 251, 218));
+}
+
+.endGameBoard{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 250px;
+    height: 300px;
+    background: green;
+    border: 2px solid black;
+    border-radius: 30px;
+}
+
+.endGameBoard p {
+    margin: 20px;
+}
+
+.reload{
+    width: 150px;
+    height: 70px;
+    border-radius: 20px;
+    margin-left: 50px;
+    cursor: pointer;
+    font-size: 25px;
 }
 
 .nuvem {
