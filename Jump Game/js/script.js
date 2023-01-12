@@ -34,11 +34,11 @@ const endGameCheck = setInterval(() => {
         </form>`;
     }
 
-    if (contadorPontuaçao > 1000) {
+    if (contadorPontuaçao > 1006) {
         obstaculo.style.animation = 'obstaculo-animação 3s infinite linear';
     }
 
-    if (contadorPontuaçao > 3000) {
+    if (contadorPontuaçao > 3006) {
         obstaculo.style.animation = 'obstaculo-animação 2.5s infinite linear';
     }
 
